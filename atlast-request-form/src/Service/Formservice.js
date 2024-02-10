@@ -4,16 +4,24 @@ import config from '../Config/envVariables';
 const API_URL = `${config.Server_url}/user/data`;
 const Public_URL = `${config.Server_url}/public`;
 
-//to get user information from server
+//This service is used to send the form Data to the backend server
+
+
+//axios post call to the backend server
 const postUserForm = (body) => {
-	return axios
+	console.log(body, "I am at the form service")
+    return axios
 		.post(API_URL + '/form', { body: body }, { headers: authHeader() })
 		.then((response) => {
 			return response.data;
 		});
-	//  "/review" is a route of the server
 };
 
+
+
+
+
+//Extra refrence code
 const getUserReview = () => {
 	return axios
 		.get(API_URL + '/review', { headers: authHeader() })

@@ -39,23 +39,25 @@ function Form() {
 
   const handleSubmit = async (event) => {
     
-    setError("");
-    setSuccess("");
+    //setError("");
+    //setSuccess("");
     event.preventDefault();
     console.log(formData); // or send form data to server
-    let error = await validate(formValues);
+    //let error = await validate(formValues);
 
-    await setFormErrors(error);
-    if (Object.keys(error).length === 0) {
-        Formservice.postUserForm(formValues)
+    //await setFormErrors(error);
+    //if (Object.keys(error).length === 0) {
+        Formservice.postUserForm(formData)
         .then((data) => {
-          setSuccess("Review added successfully !");
-          setReload(true);
+          //setSuccess("Review added successfully !");
+          //setReload(true);
+          console.log("Success")
         })
         .catch((e) => {
-          setError(`Opps, something went wrong :${e}`);
+          //setError(`Opps, something went wrong :${e}`);
+          console.log("Error")
         });
-    }
+    //}
   };
 
   
