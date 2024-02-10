@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 import config from '../Config/envVariables';
-const API_URL = `${config.Server_url}/user/data`;
+const API_URL = `${config.Server_url}`;
 const Public_URL = `${config.Server_url}/public`;
 
 //This service is used to send the form Data to the backend server
@@ -11,7 +11,7 @@ const Public_URL = `${config.Server_url}/public`;
 const postUserForm = (body) => {
 	console.log(body, "I am at the form service")
     return axios
-		.post(API_URL + '/form', { body: body }, { headers: authHeader() })
+		.post(API_URL + '/form', { body: body })
 		.then((response) => {
 			return response.data;
 		});
